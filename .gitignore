@@ -91,3 +91,6 @@ Pods/
 **/Flutter/flutter_assets/
 
 **/pubspec.lock
+
+# FVM Version Cache
+.fvm/
