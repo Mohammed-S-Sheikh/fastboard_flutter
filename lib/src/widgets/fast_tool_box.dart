@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../controller.dart';
 import '../types/types.dart';
 import 'flutter_after_layout.dart';
 import 'widgets.dart';
 
 class FastToolBoxExpand extends FastRoomControllerWidget {
   const FastToolBoxExpand(
-    FastRoomController controller, {
-    Key? key,
-  }) : super(controller, key: key);
+    super.controller, {
+    super.key,
+  });
 
   @override
   State<StatefulWidget> createState() {
@@ -317,9 +316,9 @@ class FastToolBoxExpandState
 
 class ToolExtensionPadding extends StatelessWidget {
   const ToolExtensionPadding({
-    Key? key,
+    super.key,
     required this.themeData,
-  }) : super(key: key);
+  });
 
   final FastThemeData themeData;
 

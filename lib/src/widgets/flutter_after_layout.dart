@@ -5,10 +5,10 @@ import 'package:flutter/widgets.dart';
 /// code by [https://book.flutterchina.club/]
 class AfterLayout extends SingleChildRenderObjectWidget {
   AfterLayout({
-    Key? key,
+    super.key,
     required this.callback,
-    Widget? child,
-  }) : super(key: key, child: child);
+    super.child,
+  });
 
   @override
   RenderObject createRenderObject(BuildContext context) {

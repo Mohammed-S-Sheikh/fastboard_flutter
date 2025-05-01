@@ -1,6 +1,6 @@
 import 'package:fastboard_flutter/src/widgets/flutter_after_layout.dart';
 import 'package:flutter/widgets.dart';
-import 'package:i18n_extension/i18n_widget.dart';
+import 'package:i18n_extension/i18n_extension.dart';
 import 'package:whiteboard_sdk_flutter/whiteboard_sdk_flutter.dart';
 
 import 'controller.dart';
@@ -24,7 +24,7 @@ class FastRoomView extends StatefulWidget {
   /// The room view can be controlled using a `FastRoomController` that is passed to the
   /// `onFastRoomCreated` callback once the room is created.
   const FastRoomView({
-    Key? key,
+    super.key,
     required this.fastRoomOptions,
     this.theme,
     this.darkTheme,
@@ -32,7 +32,7 @@ class FastRoomView extends StatefulWidget {
     this.locate,
     this.onFastRoomCreated,
     this.builder = defaultControllerBuilder,
-  }) : super(key: key);
+  });
 
   /// light theme data
   final FastThemeData? theme;
@@ -83,30 +83,34 @@ class FastRoomViewState extends State<FastRoomView> {
     controller.updateThemeData(widget.useDarkTheme, themeData);
     return I18n(
       child: ConstrainedBox(
-          constraints: const BoxConstraints.expand(),
-          child: AfterLayout(
-            callback: (renderAfterLayout) {
-              debugPrint("room view changed: ${renderAfterLayout.size}");
-              controller.updateRoomLayoutSize(renderAfterLayout.size);
-            },
-            child: Stack(
-              children: [
-                WhiteboardView(
-                  options: whiteOptions,
-                  onSdkCreated: (sdk) async {
-                    await controller.joinRoomWithSdk(sdk);
-                    widget.onFastRoomCreated?.call(controller);
+        constraints: const BoxConstraints.expand(),
+        child: AfterLayout(
+          callback: (renderAfterLayout) {
+            debugPrint("room view changed: ${renderAfterLayout.size}");
+            controller.updateRoomLayoutSize(renderAfterLayout.size);
+          },
+          child: Stack(
+            children: [
+              WhiteboardView(
+                options: whiteOptions,
+                onSdkCreated: (sdk) async {
+                  await controller.joinRoomWithSdk(sdk);
+                  widget.onFastRoomCreated?.call(controller);
+                },
+                useBasicWebView: true,
+              ),
+              FastTheme(
+                data: themeData,
+                child: Builder(
+                  builder: (context) {
+                    return widget.builder(context, controller);
                   },
-                  useBasicWebView: true,
                 ),
-                FastTheme(
-                    data: themeData,
-                    child: Builder(builder: (context) {
-                      return widget.builder(context, controller);
-                    }))
-              ],
-            ),
-          )),
+              ),
+            ],
+          ),
+        ),
+      ),
       initialLocale: widget.locate,
     );
   }

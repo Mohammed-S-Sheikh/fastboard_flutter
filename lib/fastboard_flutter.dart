@@ -1,4 +1,4 @@
-library fastboard_flutter;
+library;
 
 export 'package:whiteboard_sdk_flutter/whiteboard_sdk_flutter.dart';
 

@@ -14,6 +14,7 @@ Widget defaultControllerBuilder(
       Positioned(
         child: FastPageIndicator(controller),
         bottom: FastGap.gap_3,
+        right: FastGap.gap_3,
       ),
       Positioned(
         child: Row(

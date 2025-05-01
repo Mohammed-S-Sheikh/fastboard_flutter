@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 const String APP_ID = '283/VGiScM9Wiw2HJg';
 const String ROOM_UUID = "af970870130111ee8a9f7f934b093cd5";
 const String ROOM_TOKEN =

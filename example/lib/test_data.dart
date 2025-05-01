@@ -22,10 +22,10 @@ class CloudFile {
     required this.type,
     required this.name,
     required this.url,
-    this.width = null,
-    this.height = null,
-    this.taskUUID = null,
-    this.taskToken = null,
+    this.width,
+    this.height,
+    this.taskUUID,
+    this.taskToken,
   });
 
   CloudFile.fromJson(Map<String, dynamic> map)

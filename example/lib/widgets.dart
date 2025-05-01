@@ -7,9 +7,9 @@ class CloudTestWidget extends StatefulWidget {
   final FastRoomController controller;
 
   CloudTestWidget({
+    super.key,
     required this.controller,
-    Key? key,
-  }) : super(key: key);
+  });
 
   @override
   State<CloudTestWidget> createState() {

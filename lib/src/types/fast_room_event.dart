@@ -13,13 +13,13 @@ class OverlayChangedEvent extends FastRoomEvent<int> {
   static const int noOverlay = 0;
   static const int subAppliances = 1;
 
-  OverlayChangedEvent(int value) : super(value);
+  OverlayChangedEvent(super.value);
 }
 
 class FastErrorEvent extends FastRoomEvent<WhiteException> {
-  FastErrorEvent(WhiteException exception) : super(exception);
+  FastErrorEvent(super.exception);
 }
 
 class SizeChangedEvent extends FastRoomEvent<Size> {
-  SizeChangedEvent(Size size) : super(size);
+  SizeChangedEvent(super.size);
 }

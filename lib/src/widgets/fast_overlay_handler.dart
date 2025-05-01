@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../controller.dart';
 import '../types/types.dart';
 import 'widgets.dart';
 
 /// handle overlay when toolbox extension displayed
 class FastOverlayHandlerView extends FastRoomControllerWidget {
   const FastOverlayHandlerView(
-    FastRoomController controller, {
-    Key? key,
+    super.controller, {
+    super.key,
     bool? expand,
-  }) : super(controller, key: key);
+  });
 
   @override
   State<StatefulWidget> createState() {

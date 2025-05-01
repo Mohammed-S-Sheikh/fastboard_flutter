@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../controller.dart';
 import 'fast_base_ui.dart';
 import 'fast_gap.dart';
 import 'fast_icons.dart';
@@ -13,11 +12,11 @@ class FastZoomView extends FastRoomControllerWidget {
   final num maxScale;
 
   const FastZoomView(
-    FastRoomController controller, {
-    Key? key,
+    super.controller, {
+    super.key,
     this.minScale = 0.25,
     this.maxScale = 10,
-  }) : super(controller, key: key);
+  });
 
   @override
   State<StatefulWidget> createState() {
@@ -83,7 +82,7 @@ class FastZoomState extends FastRoomControllerState<FastZoomView> {
 }
 
 class FastText extends StatelessWidget {
-  const FastText(this.text, {Key? key}) : super(key: key);
+  const FastText(this.text, {super.key});
 
   final String text;
 

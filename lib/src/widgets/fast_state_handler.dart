@@ -3,15 +3,14 @@ import 'package:fastboard_flutter/src/types/fast_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:whiteboard_sdk_flutter/whiteboard_sdk_flutter.dart';
 
-import '../controller.dart';
 import 'widgets.dart';
 
 /// display the room loading, error and support a ui to reconnect
 class FastStateHandlerView extends FastRoomControllerWidget {
   const FastStateHandlerView(
-    FastRoomController controller, {
-    Key? key,
-  }) : super(controller, key: key);
+    super.controller, {
+    super.key,
+  });
 
   @override
   State<StatefulWidget> createState() {

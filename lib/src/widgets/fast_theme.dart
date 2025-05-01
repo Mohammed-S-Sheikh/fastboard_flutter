@@ -4,10 +4,10 @@ import '../types/fast_theme_data.dart';
 
 class FastTheme extends InheritedWidget {
   FastTheme({
-    Key? key,
+    super.key,
     required this.data,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required super.child,
+  });
 
   final FastThemeData data;
 

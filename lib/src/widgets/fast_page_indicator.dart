@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../controller.dart';
 import 'widgets.dart';
 
 /// display page indicate
 class FastPageIndicator extends FastRoomControllerWidget {
   const FastPageIndicator(
-    FastRoomController controller, {
-    Key? key,
-  }) : super(controller, key: key);
+    super.controller, {
+    super.key,
+  });
 
   @override
   State<StatefulWidget> createState() {

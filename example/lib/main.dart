@@ -12,13 +12,13 @@ final List<FastExamplePage> _allPages = <FastExamplePage>[
 void main() {
   const bool isProduction = bool.fromEnvironment('dart.vm.product');
   if (isProduction) {
-    debugPrint = (String? message, {int? wrapWidth}) => null;
+    debugPrint = (String? message, {int? wrapWidth}) {};
   }
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -34,28 +34,30 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text('FFastboard'),
+        appBar: AppBar(
+          title: const Text('FFastboard'),
+        ),
+        body: ListView.builder(
+          itemCount: _allPages.length,
+          itemBuilder: (appContext, index) => ListTile(
+            leading: _allPages[index].leading,
+            title: Text(_allPages[index].title),
+            onTap: () => _pushPage(appContext, _allPages[index]),
           ),
-          body: ListView.builder(
-            itemCount: _allPages.length,
-            itemBuilder: (appContext, index) => ListTile(
-              leading: _allPages[index].leading,
-              title: Text(_allPages[index].title),
-              onTap: () => _pushPage(appContext, _allPages[index]),
-            ),
-          )
-          // body: _allPages[0],
-          ),
+        ),
+      ),
     );
   }
 
   void _pushPage(BuildContext context, FastExamplePage page) {
-    Navigator.of(context).push(MaterialPageRoute<void>(
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
         builder: (_) => Scaffold(
-              body: page,
-              // prevent resize, when the keyboard appears
-              resizeToAvoidBottomInset: false,
-            )));
+          body: page,
+          // prevent resize, when the keyboard appears
+          resizeToAvoidBottomInset: false,
+        ),
+      ),
+    );
   }
 }

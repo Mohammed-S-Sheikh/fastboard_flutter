@@ -9,8 +9,8 @@ abstract class FastRoomControllerWidget extends StatefulWidget {
 
   const FastRoomControllerWidget(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 }
 
 abstract class FastRoomControllerState<T extends FastRoomControllerWidget>
@@ -50,9 +50,9 @@ class FastContainer extends StatelessWidget {
   final Widget? child;
 
   const FastContainer({
-    Key? key,
+    super.key,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -84,12 +84,12 @@ class FastToolboxButton extends StatelessWidget {
   final GestureTapCallback? onTap;
 
   const FastToolboxButton({
-    Key? key,
+    super.key,
     this.selected = false,
     this.expandable = false,
     this.icons,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -124,9 +124,9 @@ class FastIcon extends StatelessWidget {
 
   const FastIcon(
     this.icon, {
-    Key? key,
+    super.key,
     this.selected = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
