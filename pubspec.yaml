@@ -1,6 +1,7 @@
 name: fastboard_flutter
 description: A new Flutter package to help developers quickly build whiteboard applications.
 version: 0.1.2
+publish_to: none
 homepage: https://github.com/netless-io/fastboard_flutter
 
 environment:
@@ -12,7 +13,10 @@ dependencies:
     flutter_svg: ^2.1.0
     i18n_extension: ^15.0.5
     stream_transform: ^2.1.1
-    whiteboard_sdk_flutter: ^0.5.4
+    whiteboard_sdk_flutter:
+        git:
+            url: https://github.com/Mohammed-S-Sheikh/whiteboard_flutter.git
+            ref: 30e445bdeb5a786899ee5b593e9708f5d6a5b2f3
 
 dev_dependencies:
     flutter_lints: ^5.0.0
